@@ -21,8 +21,25 @@ namespace VentasApp.Controllers
             return View(Lista);
         }
 
-
         [HttpGet]
+        public async Task<IActionResult> Buscar(string searchString)
+        {
+            var productos = from p in _appDbContext.Productos select p;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                productos = productos.Where(p => p.NombreProducto.Contains(searchString) ||
+                                                  p.IdProducto.ToString().Contains(searchString) ||
+                                                  p.CodigoProducto.Contains(searchString) ||
+                                                  p.CodigoBarras.Contains(searchString) ||
+                                                  p.SKU.Contains(searchString));
+            }
+
+            return View(await productos.ToListAsync());
+
+        }
+
+            [HttpGet]
         public IActionResult Nuevo()
         {
             return View();

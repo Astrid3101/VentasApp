@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<VentasApp.Models.Producto>
+
+<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+        <h2>Buscar Productos</h2>
+
+        <form asp-controller="Producto" asp-action="Buscar" method="get">
+            <div class="form-group">
+                <input type="text" name="searchString" class="form-control" placeholder="Buscar por nombre, ID, código de barras o SKU" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre del Producto</th>
+                    <th>Código del Producto</th>
+                    <th>Código de Barras</th>
+                    <th>SKU</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.IdProducto</td>
+                            <td>@item.NombreProducto</td>
+                            <td>@item.CodigoProducto</td>
+                            <td>@item.CodigoBarras</td>
+                            <td>@item.SKU</td>
+                            <td>@item.Precio</td>
+                            <td>@item.Stock</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="8" class="text-center">No se encontraron productos.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mb-3">
+        <a asp-controller="Producto" asp-action="Lista" class="btn btn-warning">Volver</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function confirmar() {
+            return confirm("¿Estás seguro de eliminar este producto?");
+        }
+    </script>
+}
