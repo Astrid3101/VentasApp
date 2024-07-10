@@ -60,6 +60,8 @@ namespace VentasApp.Data
             {
                 tb.HasKey(col => col.IdPedido);
 
+                tb.Property(col => col.DescripcionPedido).HasMaxLength(100);
+
                 tb.Property(col => col.IdPedido)
                 .UseIdentityColumn()
                 .ValueGeneratedOnAdd();

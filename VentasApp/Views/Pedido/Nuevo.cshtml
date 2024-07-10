@@ -11,18 +11,8 @@
         <h2>Nuevo Pedido</h2>
         <form asp-controller="Pedido" asp-action="Nuevo" method="post">
             <div class="mb-3">
-                <label>Id del Pedido</label>
-                <input class="form-control" asp-for="IdPedido" type="int" />
-
-            </div>
-            <div class="mb-3">
-                <label>Id del Cliente</label>
-                <input class="form-control" asp-for="ClienteId" type="int" />
-
-            </div>
-            <div class="mb-3">
-                <label>Fecha del Pedido</label>
-                <input class="form-control" asp-for="FechaPedido" type="datetime" />
+                <label>Descripción del Pedido</label>
+                <input class="form-control" asp-for="DescripcionPedido" type="text" />
 
             </div>
 

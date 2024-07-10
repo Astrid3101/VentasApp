@@ -7,7 +7,9 @@ namespace VentasApp.Models
         public int IdPedido { get; set; }
 
         public int ClienteId { get; set; }
-        public DateTime FechaPedido { get; set; }   
+        public DateTime FechaPedido { get; set; }
+        
+        public string DescripcionPedido { get; set; }
 
         public Cliente Cliente { get; set; }
 

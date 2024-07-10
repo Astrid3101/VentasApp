@@ -14,6 +14,7 @@
                     <th>Id del Pedido</th>
                     <th>Id del Cliente</th>
                     <th>Fecha del Pedido</th>
+                    <th>Descripción del Pedido</th>
                 </tr>
 
             </thead>
@@ -24,6 +25,7 @@
                         <td>@item.IdPedido</td>
                         <td>@item.ClienteId</td>
                         <td>@item.FechaPedido</td>
+                        <td>@item.DescripcionPedido</td>
                         <td>
                             <a asp-controller="Pedido"
                                asp-action="Editar"
