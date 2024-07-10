@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model VentasApp.Models.Producto;
+<div class="row">
+    <div class="col-sa-8 offset-sn-2">
+        <h2>Editar Producto</h2>
+        <form asp-controller="Producto" asp-action="Editar" method="post">
+            <input asp-for="IdProducto" type="hidden" />
+            <div class="mb-3">
+                <label>Nombre del Producto</label>
+                <input class="form-control" asp-for="NombreProducto" type="text" />
+
+            </div>
+            <div class="mb-3">
+                <label>Código del Producto</label>
+                <input class="form-control" asp-for="CodigoProducto" type="text" />
+
+            </div>
+            <div class="mb-3">
+                <label>Código de Barra</label>
+                <input class="form-control" asp-for="CodigoBarras" type="text" />
+
+            </div>
+            <div class="mb-3">
+                <label>SKU</label>
+                <input class="form-control" asp-for="SKU" type="text" />
+
+            </div>
+            <div class="mb-3">
+                <label>Precio</label>
+                <input class="form-control" asp-for="Precio" type="text" />
+
+            </div>
+            <div class="mb-3">
+                <label>Stock</label>
+                <input class="form-control" asp-for="Stock" type="text" />
+
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Guardar Producto</button>
+                <a asp-controller="Producto" asp-action="Lista" class="btn btn-warning">Volver</a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+

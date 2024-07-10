@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<VentasApp.Models.Pedido>;
+<div class="row">
+    <div class="col-sa-8 offset-sn-2">
+        <h2>Lista de Pedidos</h2>
+        <a asp-controller="Pedido" asp-action="Nuevo" class="btn btn-success mb-3">Nuevo Pedido</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id del Pedido</th>
+                    <th>Id del Cliente</th>
+                    <th>Fecha del Pedido</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdPedido</td>
+                        <td>@item.ClienteId</td>
+                        <td>@item.FechaPedido</td>
+                        <td>
+                            <a asp-controller="Pedido"
+                               asp-action="Editar"
+                               asp-route-id="@item.IdPedido"
+                               class="btn btn-primary mb-3">
+                                Editar
+                                Pedido
+                            </a>
+
+                            <a asp-controller="Pedido"
+                               asp-action="Eliminar"
+                               asp-route-id="@item.IdPedido"
+                               onclick="return confirmar()"
+                               class="btn btn-danger mb-3">
+                                Eliminar
+                                Pedido
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        function confirmar() {
+            return confirm("Estas seguro de eliminar este Pedido?")
+        }
+    </script>
+}

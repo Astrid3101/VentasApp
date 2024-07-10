@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<VentasApp.Models.Producto>;
+<div class="row">
+    <div class="col-sa-8 offset-sn-2">
+        <h2>Lista de Productos</h2>
+        <a asp-controller="Producto" asp-action="Nuevo" class="btn btn-success mb-3">Nuevo Producto</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre del Producto</th>
+                    <th>Código del Producto</th>
+                    <th>Código de Barras</th>
+                    <th>SKU</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdProducto</td>
+                        <td>@item.NombreProducto</td>
+                        <td>@item.CodigoProducto</td>
+                        <td>@item.CodigoBarras </td>
+                        <td>@item.SKU</td>
+                        <td>@item.Precio</td>
+                        <td>@item.Stock</td>
+                        <td>
+                            <a asp-controller="Producto" 
+                              asp-action="Editar" 
+                              asp-route-id="@item.IdProducto"
+                            class="btn btn-primary mb-3">Editar 
+                            Producto</a>
+
+                            <a asp-controller="Producto" 
+                              asp-action="Eliminar" 
+                              asp-route-id="@item.IdProducto"
+                              onclick="return confirmar()"
+                            class="btn btn-danger mb-3">Eliminar 
+                            Producto</a>
+         
+                        </td>
+                       
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+        function confirmar(){
+            return confirm("Estas seguro de eliminar este Producto?")
+        }
+    </script>
+}
